@@ -1,4 +1,4 @@
-import { Express } from "express";
+import { IAppendMiddlewareFirstProps } from "./../types/env.type.d";
 
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
@@ -34,17 +34,17 @@ export const createApolloServer = (
   });
 };
 
-interface IAppendMiddlewareProps {
-  apolloServer: ApolloServer;
-  app: Express;
-}
-
+/**
+ * ### Append middlewares.
+ */
 export const appendMiddleware = (
-  { apolloServer, app }: IAppendMiddlewareProps,
+  { apolloServer, app }: IAppendMiddlewareFirstProps,
   ...args: any[]
-) => {
-  args.forEach((arg: any) => app.use(arg));
-  apolloServer.applyMiddleware({ app });
+): void => {
+  args.forEach((arg: any) => {
+    app.use(arg);
+    apolloServer.applyMiddleware({ app });
+  });
 };
 
 // Functions end.

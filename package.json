@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon --exec ts-node ./src/server --ext ts,js --delay 0.5",
     "build": "tsc",
-    "start": "node ./build/server"
+    "start": "node ./build/server",
+    "ncu:check": "ncu",
+    "ncu:upgrade": "ncu -u && npm install"
   },
   "keywords": [
     "Apollo",

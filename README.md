@@ -27,3 +27,17 @@ npm run build
 ```
 npm start
 ```
+
+#### Check library modules version.
+
+```
+npm run ncu:check
+```
+
+#### Upgrade library modules version.
+
+```
+npm run ncu:upgrade
+```
+
+[NCU Detail](https://github.com/raineorshine/npm-check-updates)
